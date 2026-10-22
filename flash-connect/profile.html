@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon Profil — FLASH CONNECT | U-PARAKOU</title>
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Application Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+
+  <div class="app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="app-sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="brand">
+          <div class="brand-logo"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div class="brand-text">
+            <h1>FLASH CONNECT</h1>
+            <span>U-PARAKOU</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="sidebar-menu">
+        <div class="menu-category">Principal</div>
+        <div class="nav-item">
+          <a href="dashboard.html" class="nav-link-item">
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>Tableau de Bord</span>
+          </a>
+        </div>
+
+        <div class="menu-category">Gestion Académique</div>
+        <div class="nav-item">
+          <a href="students.html" class="nav-link-item">
+            <i class="fa-solid fa-user-graduate"></i>
+            <span>Étudiants</span>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="courses.html" class="nav-link-item">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Cours & UE</span>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="timetable.html" class="nav-link-item">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>Emploi du Temps</span>
+          </a>
+        </div>
+
+        <div class="menu-category">Services & Documents</div>
+        <div class="nav-item">
+          <a href="document-requests.html" class="nav-link-item">
+            <i class="fa-solid fa-file-signature"></i>
+            <span>Demandes de Docs</span>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="documents.html" class="nav-link-item">
+            <i class="fa-solid fa-folder-open"></i>
+            <span>Bibliothèque Numérique</span>
+          </a>
+        </div>
+
+        <div class="menu-category">Communication & Administration</div>
+        <div class="nav-item">
+          <a href="announcements.html" class="nav-link-item">
+            <i class="fa-solid fa-bullhorn"></i>
+            <span>Annonces Officielles</span>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="teachers.html" class="nav-link-item">
+            <i class="fa-solid fa-chalkboard-user"></i>
+            <span>Enseignants</span>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="admin.html" class="nav-link-item">
+            <i class="fa-solid fa-sliders"></i>
+            <span>Administration</span>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="profile.html" class="nav-link-item active">
+            <i class="fa-solid fa-user-gear"></i>
+            <span>Mon Profil</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="user-mini-card">
+          <div class="avatar">BK</div>
+          <div class="user-info">
+            <div class="user-name">Bio Koffi Sossou</div>
+            <div class="user-role">Étudiant</div>
+          </div>
+          <button class="btn btn-outline btn-sm btn-icon" onclick="logout()" title="Déconnexion">
+            <i class="fa-solid fa-power-off" style="color:var(--danger);"></i>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="app-main">
+      <header class="app-header">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <button class="mobile-toggle" id="mobile-sidebar-toggle" aria-label="Menu principal">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="header-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" class="form-control" placeholder="Rechercher...">
+          </div>
+        </div>
+
+        <div class="header-right">
+          <button class="theme-toggle-btn" aria-label="Changer de thème">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          <div class="notification-btn">
+            <button class="btn btn-outline btn-icon" aria-label="Notifications">
+              <i class="fa-regular fa-bell"></i>
+              <span class="notification-badge-count">3</span>
+            </button>
+          </div>
+          <a href="profile.html" style="display:flex; align-items:center; gap:0.5rem; color:inherit; text-decoration:none;">
+            <div class="avatar">BK</div>
+            <span class="user-name" style="font-size:0.9rem; font-weight:600;">Bio Koffi</span>
+          </a>
+        </div>
+      </header>
+
+      <!-- Page Content -->
+      <div class="app-content">
+        <div class="page-header">
+          <div class="page-title">
+            <h2>Mon Profil & Paramètres du Compte</h2>
+            <p>Gérez vos informations personnelles et vos préférences de sécurité.</p>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+
+          <!-- User Details Card -->
+          <div class="card">
+            <div style="text-align: center; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1.5rem;">
+              <div class="avatar" id="prof-avatar-large" style="width: 72px; height: 72px; font-size: 1.6rem; margin: 0 auto 1rem;">BK</div>
+              <h3 id="prof-fullname" style="margin-bottom: 0.25rem;">Bio Koffi Sossou</h3>
+              <span class="badge badge-primary" id="prof-role-badge">Étudiant</span>
+            </div>
+
+            <div>
+              <div class="form-group">
+                <label class="form-label">Email Institutionnel</label>
+                <input type="email" id="prof-email" class="form-control" readonly>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div class="form-group">
+                  <label class="form-label">Matricule</label>
+                  <input type="text" id="prof-matricule" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Niveau d'Étude</label>
+                  <input type="text" id="prof-level" class="form-control" readonly>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Département / Structure</label>
+                <input type="text" id="prof-department" class="form-control" readonly>
+              </div>
+            </div>
+          </div>
+
+          <!-- Security & Preferences Card -->
+          <div class="card">
+            <h3 class="card-title" style="margin-bottom: 1.25rem;">Changer le Mot de Passe</h3>
+            <form id="profile-password-form">
+              <div class="form-group">
+                <label class="form-label">Mot de passe actuel</label>
+                <input type="password" id="prof-curr-pass" class="form-control" required placeholder="••••••••">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Nouveau mot de passe</label>
+                <input type="password" id="prof-new-pass" class="form-control" required placeholder="••••••••">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Confirmer le nouveau mot de passe</label>
+                <input type="password" id="prof-conf-pass" class="form-control" required placeholder="••••••••">
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%;">
+                <i class="fa-solid fa-key"></i> Mettre à jour le mot de passe
+              </button>
+            </form>
+
+            <hr style="margin: 1.5rem 0; border: none; border-top: 1px solid var(--border-color);">
+
+            <h3 class="card-title" style="margin-bottom: 1rem;">Préférences de Notification</h3>
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+              <label class="remember-me">
+                <input type="checkbox" checked>
+                <span>Alertes email pour nouvelles annonces officielles</span>
+              </label>
+              <label class="remember-me">
+                <input type="checkbox" checked>
+                <span>Notification en cas de validation de document</span>
+              </label>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- JavaScript Scripts -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const user = requireAuth();
+      if (!user) return;
+
+      document.getElementById("prof-fullname").textContent = user.fullName;
+      document.getElementById("prof-role-badge").textContent = user.roleLabel;
+      document.getElementById("prof-avatar-large").textContent = user.avatar || "FC";
+      document.getElementById("prof-email").value = user.email;
+      document.getElementById("prof-matricule").value = user.matricule || "12345621";
+      document.getElementById("prof-level").value = user.level || "Licence 2";
+      document.getElementById("prof-department").value = user.department || "Lettres Modernes";
+
+      document.getElementById("profile-password-form")?.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const curr = document.getElementById("prof-curr-pass").value;
+        const newP = document.getElementById("prof-new-pass").value;
+        const confP = document.getElementById("prof-conf-pass").value;
+
+        if (newP !== confP) {
+          showToast("Les nouveaux mots de passe ne correspondent pas.", "danger");
+          return;
+        }
+
+        showToast("Mot de passe mis à jour avec succès !", "success");
+        e.target.reset();
+      });
+    });
+  </script>
+</body>
+</html>

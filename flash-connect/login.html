@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connexion — FLASH CONNECT | Université de Parakou</title>
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Application Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/auth.css">
+</head>
+<body>
+
+  <!-- Demo Disclaimer Banner -->
+  <div class="demo-banner">
+    <i class="fa-solid fa-flask"></i>
+    <span>DEMO INTERACTIVE — Cliquez sur un rôle prédéfini ci-dessous pour remplir instantanément les identifiants de test.</span>
+  </div>
+
+  <div class="auth-wrapper">
+    <div class="auth-container">
+      <!-- Side Showcase Banner -->
+      <div class="auth-side">
+        <div class="auth-side-header">
+          <a href="index.html" class="logo-badge" style="color:#ffffff;">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>FLASH CONNECT</span>
+          </a>
+        </div>
+        <div class="auth-side-content">
+          <h2>Faculté des Lettres, Arts et Sciences Humaines</h2>
+          <p>
+            Bienvenue sur le portail numérique d'excellence de l'Université de Parakou. Connectez-vous à votre espace personnel.
+          </p>
+        </div>
+        <div class="auth-side-footer">
+          <p>&copy; 2026 Université de Parakou. Système Numérique Indépendant.</p>
+        </div>
+      </div>
+
+      <!-- Main Login Form -->
+      <div class="auth-form-container">
+        <div class="auth-header">
+          <h2>Se Connecter</h2>
+          <p>Entrez vos identifiants ou sélectionnez un rôle de démonstration.</p>
+        </div>
+
+        <!-- Role Presets Filler for Smooth Demo -->
+        <div class="demo-roles-picker">
+          <h4><i class="fa-solid fa-bolt"></i> Comptes de Démonstration (Clic Rapide) :</h4>
+          <div class="demo-roles-buttons">
+            <button type="button" class="demo-role-btn" onclick="fillRoleCredentials('student')">
+              <i class="fa-solid fa-user-graduate"></i> Étudiant
+            </button>
+            <button type="button" class="demo-role-btn" onclick="fillRoleCredentials('teacher')">
+              <i class="fa-solid fa-chalkboard-user"></i> Enseignant
+            </button>
+            <button type="button" class="demo-role-btn" onclick="fillRoleCredentials('approver')">
+              <i class="fa-solid fa-file-check"></i> Valideur Doc.
+            </button>
+            <button type="button" class="demo-role-btn" onclick="fillRoleCredentials('admin')">
+              <i class="fa-solid fa-user-shield"></i> Administrateur
+            </button>
+            <button type="button" class="demo-role-btn" onclick="fillRoleCredentials('auditor')">
+              <i class="fa-solid fa-eye"></i> Auditeur
+            </button>
+          </div>
+        </div>
+
+        <form id="login-form">
+          <div class="form-group">
+            <label class="form-label" for="login-identifier">Email institutionnel ou Matricule</label>
+            <input type="text" id="login-identifier" class="form-control" placeholder="ex: koffi.bio@etud.u-parakou.bj ou 12345621" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="login-password">Mot de passe</label>
+            <div class="password-input-wrapper">
+              <input type="password" id="login-password" class="form-control" placeholder="••••••••" required>
+              <button type="button" class="password-toggle-btn" aria-label="Afficher le mot de passe">
+                <i class="fa-solid fa-eye"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="auth-options">
+            <label class="remember-me">
+              <input type="checkbox" id="remember-me" checked>
+              <span>Se souvenir de moi</span>
+            </label>
+            <a href="#" onclick="openForgotModal(event)">Mot de passe oublié ?</a>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+            <i class="fa-solid fa-right-to-bracket"></i> Connexion
+          </button>
+        </form>
+
+        <div class="auth-footer-text">
+          Vous n'avez pas encore de compte ? <a href="register.html">S'inscrire ici</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Password Recovery Modal -->
+  <div class="modal-overlay" id="forgot-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Récupération de mot de passe</h3>
+        <button class="modal-close" onclick="closeForgotModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Saisissez votre email institutionnel pour recevoir les instructions de réinitialisation.</p>
+        <div class="form-group">
+          <label class="form-label">Email étudiant / personnel</label>
+          <input type="email" id="recovery-email" class="form-control" placeholder="votre.nom@u-parakou.bj">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" onclick="closeForgotModal()">Annuler</button>
+        <button class="btn btn-primary" onclick="sendRecoveryEmail()">Envoyer l'instruction</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Scripts -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script>
+    function openForgotModal(e) {
+      if (e) e.preventDefault();
+      document.getElementById("forgot-modal").classList.add("active");
+    }
+    function closeForgotModal() {
+      document.getElementById("forgot-modal").classList.remove("active");
+    }
+    function sendRecoveryEmail() {
+      const email = document.getElementById("recovery-email").value;
+      if (!email) {
+        showToast("Veuillez saisir votre adresse email.", "warning");
+        return;
+      }
+      showToast("Un lien de réinitialisation fictif a été envoyé à : " + email, "success");
+      closeForgotModal();
+    }
+  </script>
+</body>
+</html>

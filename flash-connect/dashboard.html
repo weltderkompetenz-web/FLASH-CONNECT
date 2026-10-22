@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tableau de Bord — FLASH CONNECT | Université de Parakou</title>
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Application Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+
+  <div class="app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="app-sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="brand">
+          <div class="brand-logo"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div class="brand-text">
+            <h1>FLASH CONNECT</h1>
+            <span>U-PARAKOU</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="sidebar-menu">
+        <div class="menu-category">Principal</div>
+        <div class="nav-item">
+          <a href="dashboard.html" class="nav-link-item active">
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>Tableau de Bord</span>
+          </a>
+        </div>
+
+        <div class="menu-category">Gestion Académique</div>
+        <div class="nav-item">
+          <a href="students.html" class="nav-link-item">
+            <i class="fa-solid fa-user-graduate"></i>
+            <span>Étudiants</span>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="courses.html" class="nav-link-item">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Cours & UE</span>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="timetable.html" class="nav-link-item">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>Emploi du Temps</span>
+          </a>
+        </div>
+
+        <div class="menu-category">Services & Documents</div>
+        <div class="nav-item">
+          <a href="document-requests.html" class="nav-link-item">
+            <i class="fa-solid fa-file-signature"></i>
+            <span>Demandes de Docs</span>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="documents.html" class="nav-link-item">
+            <i class="fa-solid fa-folder-open"></i>
+            <span>Bibliothèque Numérique</span>
+          </a>
+        </div>
+
+        <div class="menu-category">Communication & Administration</div>
+        <div class="nav-item">
+          <a href="announcements.html" class="nav-link-item">
+            <i class="fa-solid fa-bullhorn"></i>
+            <span>Annonces Officielles</span>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="teachers.html" class="nav-link-item">
+            <i class="fa-solid fa-chalkboard-user"></i>
+            <span>Enseignants</span>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="admin.html" class="nav-link-item">
+            <i class="fa-solid fa-sliders"></i>
+            <span>Administration</span>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="profile.html" class="nav-link-item">
+            <i class="fa-solid fa-user-gear"></i>
+            <span>Mon Profil</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="user-mini-card">
+          <div class="avatar">BK</div>
+          <div class="user-info">
+            <div class="user-name">Bio Koffi Sossou</div>
+            <div class="user-role">Étudiant</div>
+          </div>
+          <button class="btn btn-outline btn-sm btn-icon" onclick="logout()" title="Déconnexion">
+            <i class="fa-solid fa-power-off" style="color:var(--danger);"></i>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="app-main">
+      <!-- Topbar Header -->
+      <header class="app-header">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <button class="mobile-toggle" id="mobile-sidebar-toggle" aria-label="Menu principal">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="header-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" class="form-control" placeholder="Rechercher un étudiant, cours...">
+          </div>
+        </div>
+
+        <div class="header-right">
+          <button class="theme-toggle-btn" aria-label="Changer de thème">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+
+          <div class="notification-btn">
+            <button class="btn btn-outline btn-icon" aria-label="Notifications">
+              <i class="fa-regular fa-bell"></i>
+              <span class="notification-badge-count">3</span>
+            </button>
+          </div>
+
+          <a href="profile.html" style="display:flex; align-items:center; gap:0.5rem; color:inherit; text-decoration:none;">
+            <div class="avatar">BK</div>
+            <span class="user-name" style="font-size:0.9rem; font-weight:600;">Bio Koffi</span>
+          </a>
+        </div>
+      </header>
+
+      <!-- Page Content -->
+      <div class="app-content">
+        <!-- Demo Banner -->
+        <div class="demo-banner" style="margin-bottom: 1.25rem; border-radius: var(--radius-md);">
+          <i class="fa-solid fa-info-circle"></i>
+          <span>Vous êtes connecté en session active démonstration. Modifiez vos rôles ou données à tout moment.</span>
+        </div>
+
+        <!-- Welcome Banner -->
+        <div class="welcome-banner">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <span class="badge badge-warning" id="dash-user-role-badge" style="margin-bottom: 0.5rem;">Étudiant</span>
+              <h2>Bienvenue, <span id="dash-user-name">Bio Koffi Sossou</span> !</h2>
+              <p id="dash-user-dept">Lettres Modernes • Licence 2 • Université de Parakou</p>
+            </div>
+            <div style="display: flex; gap: 0.5rem;">
+              <a href="document-requests.html" class="btn btn-accent btn-sm">
+                <i class="fa-solid fa-file-plus"></i> Nouvelle demande
+              </a>
+              <a href="timetable.html" class="btn btn-outline btn-sm" style="color: #ffffff; border-color: rgba(255,255,255,0.4);">
+                <i class="fa-solid fa-calendar"></i> Mon Emploi du Temps
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+          <div class="card stat-card">
+            <div class="stat-icon primary"><i class="fa-solid fa-user-graduate"></i></div>
+            <div>
+              <div class="stat-value" id="stat-students-count">0</div>
+              <div class="stat-label">Étudiants Inscrits</div>
+            </div>
+          </div>
+
+          <div class="card stat-card">
+            <div class="stat-icon info"><i class="fa-solid fa-book-open"></i></div>
+            <div>
+              <div class="stat-value" id="stat-courses-count">0</div>
+              <div class="stat-label">Cours & UE Actifs</div>
+            </div>
+          </div>
+
+          <div class="card stat-card">
+            <div class="stat-icon warning"><i class="fa-solid fa-clock-rotate-left"></i></div>
+            <div>
+              <div class="stat-value" id="stat-requests-count">0</div>
+              <div class="stat-label">Demandes en Attente</div>
+            </div>
+          </div>
+
+          <div class="card stat-card">
+            <div class="stat-icon success"><i class="fa-solid fa-bullhorn"></i></div>
+            <div>
+              <div class="stat-value" id="stat-announcements-count">0</div>
+              <div class="stat-label">Communiqués Publiés</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Dashboard Content Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+
+          <!-- Upcoming Classes / Timetable Widget -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title"><i class="fa-solid fa-calendar-day" style="color:var(--primary); margin-right:0.5rem;"></i> Cours & Séances du Jour</h3>
+              <a href="timetable.html" class="btn btn-outline-primary btn-sm">Voir tout</a>
+            </div>
+            <div class="card-body" id="dash-schedule-list">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+          <!-- Announcements Widget -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title"><i class="fa-solid fa-bullhorn" style="color:var(--accent); margin-right:0.5rem;"></i> Dernières Annonces</h3>
+              <a href="announcements.html" class="btn btn-outline-primary btn-sm">Toutes les annonces</a>
+            </div>
+            <div class="card-body" id="dash-announcements-list">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+          <!-- Audit Log / Activity Feed -->
+          <div class="card" style="grid-column: 1 / -1;">
+            <div class="card-header">
+              <h3 class="card-title"><i class="fa-solid fa-list-check" style="color:var(--info); margin-right:0.5rem;"></i> Activités & Journal Système Récents</h3>
+              <span class="badge badge-info">Temps Réel</span>
+            </div>
+            <div class="card-body" id="dash-activities-list">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- JavaScript Scripts -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>
