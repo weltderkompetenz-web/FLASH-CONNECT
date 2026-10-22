@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demandes de Documents — FLASH CONNECT | U-PARAKOU</title>
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Application Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+
+  <div class="app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="app-sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="brand">
+          <div class="brand-logo"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div class="brand-text">
+            <h1>FLASH CONNECT</h1>
+            <span>U-PARAKOU</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="sidebar-menu">
+        <div class="menu-category">Principal</div>
+        <div class="nav-item">
+          <a href="dashboard.html" class="nav-link-item">
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>Tableau de Bord</span>
+          </a>
+        </div>
+
+        <div class="menu-category">Gestion Académique</div>
+        <div class="nav-item">
+          <a href="students.html" class="nav-link-item">
+            <i class="fa-solid fa-user-graduate"></i>
+            <span>Étudiants</span>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="courses.html" class="nav-link-item">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Cours & UE</span>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="timetable.html" class="nav-link-item">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>Emploi du Temps</span>
+          </a>
+        </div>
+
+        <div class="menu-category">Services & Documents</div>
+        <div class="nav-item">
+          <a href="document-requests.html" class="nav-link-item active">
+            <i class="fa-solid fa-file-signature"></i>
+            <span>Demandes de Docs</span>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="documents.html" class="nav-link-item">
+            <i class="fa-solid fa-folder-open"></i>
+            <span>Bibliothèque Numérique</span>
+          </a>
+        </div>
+
+        <div class="menu-category">Communication & Administration</div>
+        <div class="nav-item">
+          <a href="announcements.html" class="nav-link-item">
+            <i class="fa-solid fa-bullhorn"></i>
+            <span>Annonces Officielles</span>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="teachers.html" class="nav-link-item">
+            <i class="fa-solid fa-chalkboard-user"></i>
+            <span>Enseignants</span>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="admin.html" class="nav-link-item">
+            <i class="fa-solid fa-sliders"></i>
+            <span>Administration</span>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="profile.html" class="nav-link-item">
+            <i class="fa-solid fa-user-gear"></i>
+            <span>Mon Profil</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="user-mini-card">
+          <div class="avatar">BK</div>
+          <div class="user-info">
+            <div class="user-name">Bio Koffi Sossou</div>
+            <div class="user-role">Étudiant</div>
+          </div>
+          <button class="btn btn-outline btn-sm btn-icon" onclick="logout()" title="Déconnexion">
+            <i class="fa-solid fa-power-off" style="color:var(--danger);"></i>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="app-main">
+      <header class="app-header">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <button class="mobile-toggle" id="mobile-sidebar-toggle" aria-label="Menu principal">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="header-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" class="form-control" placeholder="Rechercher une demande...">
+          </div>
+        </div>
+
+        <div class="header-right">
+          <button class="theme-toggle-btn" aria-label="Changer de thème">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          <div class="notification-btn">
+            <button class="btn btn-outline btn-icon" aria-label="Notifications">
+              <i class="fa-regular fa-bell"></i>
+              <span class="notification-badge-count">3</span>
+            </button>
+          </div>
+          <a href="profile.html" style="display:flex; align-items:center; gap:0.5rem; color:inherit; text-decoration:none;">
+            <div class="avatar">BK</div>
+            <span class="user-name" style="font-size:0.9rem; font-weight:600;">Bio Koffi</span>
+          </a>
+        </div>
+      </header>
+
+      <!-- Page Content -->
+      <div class="app-content">
+        <div class="page-header">
+          <div class="page-title">
+            <h2>Demandes de Documents Administratifs</h2>
+            <p>Commandez et suivez vos attestations et relevés officiels numérisés.</p>
+          </div>
+          <button class="btn btn-primary" onclick="openNewRequestModal()">
+            <i class="fa-solid fa-file-circle-plus"></i> Nouvelle Demande
+          </button>
+        </div>
+
+        <!-- Requests Table Card -->
+        <div class="card" style="padding:0; overflow:hidden;">
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Réf. Demande</th>
+                  <th>Étudiant</th>
+                  <th>Type de Document</th>
+                  <th>Motif</th>
+                  <th>Date</th>
+                  <th>Statut</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="requests-tbody">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- New Request Modal -->
+  <div class="modal-overlay" id="request-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Soumettre une Demande de Document</h3>
+        <button class="modal-close" onclick="closeNewRequestModal()">&times;</button>
+      </div>
+      <form id="new-request-form">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label">Type de Document Souhaité</label>
+            <select id="req-doc-type" class="form-control form-select" required>
+              <option value="Attestation de Succès">Attestation de Succès</option>
+              <option value="Relevé de Notes Officiel">Relevé de Notes Officiel</option>
+              <option value="Certificat de Scolarité">Certificat de Scolarité</option>
+              <option value="Duplicata de Carte d'Étudiant">Duplicata de Carte d'Étudiant</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Motif de la demande</label>
+            <textarea id="req-reason" class="form-control" placeholder="ex: Constitution de dossier de bourse, stage ou inscription..." required></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" onclick="closeNewRequestModal()">Annuler</button>
+          <button type="submit" class="btn btn-primary">Soumettre la demande</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- JavaScript Scripts -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script>
+    let requestsList = [];
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const user = requireAuth();
+      if (!user) return;
+
+      loadRequests();
+
+      document.getElementById("new-request-form")?.addEventListener("submit", handleCreateRequest);
+    });
+
+    function loadRequests() {
+      requestsList = JSON.parse(localStorage.getItem("fc_document_requests")) || [];
+      renderRequestsTable(requestsList);
+    }
+
+    function renderRequestsTable(list) {
+      const tbody = document.getElementById("requests-tbody");
+      if (!tbody) return;
+
+      if (list.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="7"><div class="empty-state"><i class="fa-solid fa-file-excel"></i><p>Aucune demande de document.</p></div></td></tr>`;
+        return;
+      }
+
+      const currentUser = getCurrentUser();
+      const isApprover = currentUser && (currentUser.role === 'approver' || currentUser.role === 'admin');
+
+      tbody.innerHTML = list.map(req => {
+        let badgeClass = "badge-warning";
+        if (req.status === "Approuvé") badgeClass = "badge-success";
+        if (req.status === "Rejeté") badgeClass = "badge-danger";
+
+        return `
+          <tr>
+            <td><strong>${req.id}</strong></td>
+            <td>
+              <div><strong>${req.studentName}</strong></div>
+              <small style="color:var(--text-muted);">${req.studentMatricule}</small>
+            </td>
+            <td><span class="badge badge-primary">${req.docType}</span></td>
+            <td>${req.reason}</td>
+            <td>${req.requestDate}</td>
+            <td>
+              <span class="badge ${badgeClass}">${req.status}</span>
+              ${req.approverNote ? `<div style="font-size:0.75rem; color:var(--text-muted); margin-top:0.25rem;"><em>${req.approverNote}</em></div>` : ''}
+            </td>
+            <td>
+              <div style="display:flex; gap:0.35rem;">
+                ${isApprover && req.status === "En attente" ? `
+                  <button class="btn btn-outline-primary btn-sm" onclick="approveRequest('${req.id}')" title="Approuver">
+                    <i class="fa-solid fa-check"></i>
+                  </button>
+                  <button class="btn btn-danger btn-sm" onclick="rejectRequest('${req.id}')" title="Rejeter">
+                    <i class="fa-solid fa-xmark"></i>
+                  </button>
+                ` : ''}
+                ${req.status === "Approuvé" ? `
+                  <button class="btn btn-accent btn-sm" onclick="showToast('Téléchargement du document PDF signé...', 'success')" title="Télécharger">
+                    <i class="fa-solid fa-download"></i> PDF
+                  </button>
+                ` : ''}
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function openNewRequestModal() {
+      document.getElementById("new-request-form").reset();
+      document.getElementById("request-modal").classList.add("active");
+    }
+
+    function closeNewRequestModal() {
+      document.getElementById("request-modal").classList.remove("active");
+    }
+
+    function handleCreateRequest(e) {
+      e.preventDefault();
+      const currentUser = getCurrentUser();
+      const docType = document.getElementById("req-doc-type").value;
+      const reason = document.getElementById("req-reason").value.trim();
+
+      const newReq = {
+        id: "REQ-2026-" + (requestsList.length + 1).toString().padStart(3, '0'),
+        studentName: currentUser.fullName,
+        studentMatricule: currentUser.matricule || "12345621",
+        docType,
+        reason,
+        requestDate: new Date().toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" }),
+        status: "En attente",
+        approverNote: ""
+      };
+
+      requestsList.unshift(newReq);
+      localStorage.setItem("fc_document_requests", JSON.stringify(requestsList));
+
+      showToast("Demande soumise avec succès !", "success");
+      closeNewRequestModal();
+      loadRequests();
+    }
+
+    function approveRequest(id) {
+      const idx = requestsList.findIndex(r => r.id === id);
+      if (idx !== -1) {
+        requestsList[idx].status = "Approuvé";
+        requestsList[idx].approverNote = "Validé par le service scolarité.";
+        localStorage.setItem("fc_document_requests", JSON.stringify(requestsList));
+        showToast("Demande approuvée", "success");
+        loadRequests();
+      }
+    }
+
+    function rejectRequest(id) {
+      const idx = requestsList.findIndex(r => r.id === id);
+      if (idx !== -1) {
+        requestsList[idx].status = "Rejeté";
+        requestsList[idx].approverNote = "Pièce justificative non conforme.";
+        localStorage.setItem("fc_document_requests", JSON.stringify(requestsList));
+        showToast("Demande rejetée", "warning");
+        loadRequests();
+      }
+    }
+  </script>
+</body>
+</html>

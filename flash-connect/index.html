@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FLASH CONNECT — Faculté des Lettres, Arts et Sciences Humaines | Université de Parakou</title>
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Application Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* Public Homepage Specific Extensions */
+    .hero {
+      padding: 5rem 1.5rem;
+      background: linear-gradient(135deg, var(--primary) 0%, #0f172a 100%);
+      color: #ffffff;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(217, 119, 6, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-container {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+      padding: 0.4rem 1rem;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      margin-bottom: 1.5rem;
+      color: #fbbf24;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 1.25rem;
+      line-height: 1.15;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: #cbd5e1;
+      margin-bottom: 2rem;
+      max-width: 750px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .section {
+      padding: 4.5rem 1.5rem;
+    }
+    .section-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .section-title h2 {
+      font-size: 2rem;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.75rem;
+    }
+    .feature-card {
+      padding: 2rem;
+      border-radius: var(--radius-xl);
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-normal);
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary);
+    }
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: var(--radius-lg);
+      background-color: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 1.25rem;
+    }
+    .stats-strip {
+      background-color: var(--bg-card);
+      border-y: 1px solid var(--border-color);
+      padding: 2.5rem 1.5rem;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+    .stats-strip-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 2rem;
+      text-align: center;
+    }
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .footer {
+      background-color: var(--primary-dark);
+      color: #94a3b8;
+      padding: 4rem 1.5rem 2rem;
+      border-top: 1px solid var(--border-color);
+    }
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+    .footer h4 {
+      color: #ffffff;
+      font-size: 1.1rem;
+      margin-bottom: 1.25rem;
+    }
+    .footer-links li {
+      margin-bottom: 0.6rem;
+    }
+    .footer-links a {
+      color: #94a3b8;
+    }
+    .footer-links a:hover {
+      color: #ffffff;
+    }
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 2rem;
+      border-top: 1px solid #334155;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Demo Disclaimer Banner -->
+  <div class="demo-banner">
+    <i class="fa-solid fa-flask"></i>
+    <span>PROTOTYPE DE DÉMONSTRATION — FLASH CONNECT (Faculté des Lettres, Arts et Sciences Humaines - Université de Parakou)</span>
+  </div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="brand">
+        <div class="brand-logo"><i class="fa-solid fa-graduation-cap"></i></div>
+        <div class="brand-text">
+          <h1>FLASH CONNECT</h1>
+          <span>Université de Parakou</span>
+        </div>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html" class="nav-link active">Accueil</a>
+        <a href="#features" class="nav-link">Fonctionnalités</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#announcements" class="nav-link">Annonces</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="theme-toggle-btn" aria-label="Changer le thème">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <a href="login.html" class="btn btn-outline-primary">Se connecter</a>
+        <a href="register.html" class="btn btn-primary">S'inscrire</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-container">
+      <div class="hero-badge">
+        <i class="fa-solid fa-shield-halved"></i>
+        <span>Plateforme Numérique Officielle de la FLASH</span>
+      </div>
+      <h1>Portail Académique Numérique de la FLASH Parakou</h1>
+      <p>
+        Accédez à vos cours, consultez vos emplois du temps, soumettez vos demandes de documents administratifs
+        et restez informé des actualités de la Faculté des Lettres, Arts et Sciences Humaines.
+      </p>
+      <div class="hero-buttons">
+        <a href="login.html" class="btn btn-accent btn-lg">
+          <i class="fa-solid fa-right-to-bracket"></i>
+          Accéder à mon espace
+        </a>
+        <a href="register.html" class="btn btn-outline btn-lg" style="color: #ffffff; border-color: rgba(255,255,255,0.4);">
+          <i class="fa-solid fa-user-plus"></i>
+          Créer un compte étudiant
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Statistics Strip -->
+  <div class="stats-strip">
+    <div class="stats-strip-container">
+      <div>
+        <div class="stat-number">5 000+</div>
+        <div class="stat-label">Étudiants Inscrits</div>
+      </div>
+      <div>
+        <div class="stat-number">6</div>
+        <div class="stat-label">Départements Académiques</div>
+      </div>
+      <div>
+        <div class="stat-number">120+</div>
+        <div class="stat-label">Enseignants & Chercheurs</div>
+      </div>
+      <div>
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Demandes Digitalisées</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <section id="features" class="section">
+    <div class="section-container">
+      <div class="section-title">
+        <h2>Une Plateforme Complète pour la Vie Académique</h2>
+        <p>Découvrez les fonctionnalités conçues pour simplifier la gestion des étudiants et du corps professoral.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-user-graduate"></i></div>
+          <h3>Espace Étudiant Dédié</h3>
+          <p>Consultez votre profil, vos notes, votre progression académique et vos inscriptions pédagogiques en un coup d'œil.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-calendar-days"></i></div>
+          <h3>Emplois du Temps</h3>
+          <p>Consultez votre emploi du temps hebdomadaire à jour par filière, niveau d'étude et salle de cours.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-file-signature"></i></div>
+          <h3>Demandes de Documents</h3>
+          <p>Commandez vos attestations de succès, relevés de notes et certificats de scolarité en ligne sans faire la queue.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-bullhorn"></i></div>
+          <h3>Annonces Officielles</h3>
+          <p>Recevez en temps réel les communiqués du Doyen, du service scolarité et des chefs de départements.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-book-open"></i></div>
+          <h3>Catalogue de Cours</h3>
+          <p>Accédez aux syllabus des cours, aux ressources pédagogiques téléchargeables et aux fiches d'unités d'enseignement.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+          <h3>Corps Enseignant</h3>
+          <p>Consultez l'annuaire des enseignants, leurs heures de réception et leurs cours assignés.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Announcements Section -->
+  <section id="announcements" class="section" style="background-color: var(--bg-hover);">
+    <div class="section-container">
+      <div class="section-title">
+        <h2>Dernières Annonces de la Faculté</h2>
+        <p>Restez informé des actualités récentes et des communiqués administratifs.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="card">
+          <div style="display:flex; justify-content:space-between; margin-bottom:0.75rem;">
+            <span class="badge badge-danger">Important</span>
+            <small style="color:var(--text-muted);">18 Octobre 2026</small>
+          </div>
+          <h3 style="font-size:1.15rem;">Calendrier Officiel des Examens</h3>
+          <p style="font-size:0.9rem;">Les examens du 1er semestre démarreront le lundi 10 novembre 2026. Vérifiez vos inscriptions pédagogiques.</p>
+          <a href="login.html" class="btn btn-outline-primary btn-sm" style="margin-top:0.5rem;">Lire la suite <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="card">
+          <div style="display:flex; justify-content:space-between; margin-bottom:0.75rem;">
+            <span class="badge badge-info">Service Scolarité</span>
+            <small style="color:var(--text-muted);">15 Octobre 2026</small>
+          </div>
+          <h3 style="font-size:1.15rem;">Digitalisation des Relevés de Notes</h3>
+          <p style="font-size:0.9rem;">Toutes les demandes de relevés de notes et attestations de scolarité sont désormais traitées via FLASH CONNECT.</p>
+          <a href="login.html" class="btn btn-outline-primary btn-sm" style="margin-top:0.5rem;">Lire la suite <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="card">
+          <div style="display:flex; justify-content:space-between; margin-bottom:0.75rem;">
+            <span class="badge badge-success">Événement</span>
+            <small style="color:var(--text-muted);">12 Octobre 2026</small>
+          </div>
+          <h3 style="font-size:1.15rem;">Conférence Débat Littéraire</h3>
+          <p style="font-size:0.9rem;">Grande conférence sur la littérature béninoise le vendredi 24 octobre à l'Amphi 1000 de l'Université de Parakou.</p>
+          <a href="login.html" class="btn btn-outline-primary btn-sm" style="margin-top:0.5rem;">Lire la suite <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div>
+        <div class="brand-logo" style="margin-bottom:1rem;"><i class="fa-solid fa-graduation-cap"></i></div>
+        <h4 style="color:#ffffff;">Faculté des Lettres, Arts et Sciences Humaines</h4>
+        <p style="font-size:0.875rem; color:#94a3b8;">
+          Université de Parakou, République du Bénin.<br>
+          Accompagner l'excellence académique et la modernisation numérique.
+        </p>
+      </div>
+
+      <div>
+        <h4>Accès Rapide</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="login.html">Espace Connexion</a></li>
+          <li><a href="register.html">Inscription Étudiant</a></li>
+          <li><a href="login.html">Guide de la Plateforme</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Départements FLASH</h4>
+        <ul class="footer-links">
+          <li><a href="#features">Lettres Modernes</a></li>
+          <li><a href="#features">Anglais & Études Anglophones</a></li>
+          <li><a href="#features">Géographie & Aménagement</a></li>
+          <li><a href="#features">Sociologie-Anthropologie</a></li>
+          <li><a href="#features">Histoire & Archéologie</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contact & Support</h4>
+        <p style="font-size:0.85rem; color:#94a3b8;">
+          <i class="fa-solid fa-location-dot"></i> Campus Général, Parakou, Bénin<br>
+          <i class="fa-solid fa-envelope"></i> contact-flash@u-parakou.bj<br>
+          <i class="fa-solid fa-phone"></i> +229 21 61 00 00 (Ligne indicative)
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 FLASH CONNECT — Université de Parakou. Tous droits réservés. (Prototype de Démonstration)</p>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript File -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
